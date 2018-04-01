@@ -9,6 +9,8 @@ b = int(input('Wpisz drugą liczbę. ' '\n'))
 
 def Obliczanie(a, b):
 	jestSkonczone = False
+	oryginalneA = a
+	oryginalneB = b
 	while jestSkonczone == False:
 		if a == b:
 			print("Wynik to: " + str(a))
@@ -19,5 +21,17 @@ def Obliczanie(a, b):
 		else:
 			a -= b
 			print(a)
+	print('Czy zapisać wynik algorytmu do pliku? Napisz "y", żeby zapisać, albo "n", żeby odrzucić.')
+	odpowiedz = input()
+	if odpowiedz == 'y':
+		text = 'Wynikiem algorytmu jest: ' + str(a) + '\n' + 'Dane oryginalne to: ' + str(oryginalneA) + ' ' + str(oryginalneB) + '\n'
+		saveFile = open('wynikiEuklidesa.txt', 'a')
+		saveFile.write(text)
+		saveFile.close()
+		print('Zapisano. Plik znajduje się w folderze z tym skryptem.')
+	elif odpowiedz == 'n':
+		print('Wynik nie zostanie zapisany.')
+	else:
+		print('Nie zrozumiano, wynik zostanie odrzucony.')
 
 Obliczanie(a, b)
