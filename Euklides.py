@@ -23,15 +23,18 @@ def Obliczanie(a, b):
 			print(a)
 	print('Czy zapisać wynik algorytmu do pliku? Napisz "y", żeby zapisać, albo "n", żeby odrzucić.')
 	odpowiedz = input()
-	if odpowiedz == 'y':
-		text = 'Wynikiem algorytmu jest: ' + str(a) + '\n' + 'Dane oryginalne to: ' + str(oryginalneA) + ' ' + str(oryginalneB) + '\n'
-		saveFile = open('wynikiEuklidesa.txt', 'a')
-		saveFile.write(text)
-		saveFile.close()
-		print('Zapisano. Plik znajduje się w folderze z tym skryptem.')
-	elif odpowiedz == 'n':
-		print('Wynik nie zostanie zapisany.')
-	else:
-		print('Nie zrozumiano, wynik zostanie odrzucony.')
+	while jestSkonczone == True:
+		if odpowiedz == 'y':
+			text = 'Wynikiem algorytmu jest: ' + str(a) + '\n' + 'Dane oryginalne to: ' + str(oryginalneA) + ' ' + str(oryginalneB) + '\n'
+			saveFile = open('wynikiEuklidesa.txt', 'a')
+			saveFile.write(text)
+			saveFile.close()
+			print('Zapisano. Plik znajduje się w folderze z tym skryptem.')
+			jestSkonczone = True
+		elif odpowiedz == 'n':
+			print('Wynik nie zostanie zapisany.')
+			jestSkonczone = False
+		else:
+			print('Nie zrozumiano, wynik zostanie odrzucony.')
 
 Obliczanie(a, b)
